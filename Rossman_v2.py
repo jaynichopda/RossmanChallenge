@@ -43,7 +43,7 @@ list(train)
  'PromoInterval']
 
 ## EDA
-
+'''
 print ("Show plots")
 ## Scatter Plot
 sns.lmplot(x='CompetitionDistance', y='Sales', data = train)
@@ -63,7 +63,7 @@ sns.lmplot(x='CompetitionDistance', y='Sales', data=train,
 
 # Calculate correlations
 corr = train.corr()
-corr
+#corr
  
 # Heatmap
 sns.heatmap(corr) 
@@ -73,6 +73,7 @@ sns.distplot(train.Sales)
 
 # Count Plot (Bar Plot)
 sns.countplot(x='Open', data= train)
+'''
 
 ## Starting to build model
 ## Consider only open stores with non zero sales for training
@@ -179,4 +180,4 @@ test_pred[indices] = 0
 closed_idx = (test['Open']==0).values
 test_pred[closed_idx] = 0
 submission_test = pd.DataFrame({"Id": test["Id"], "Sales": np.exp(test_pred) - 1})
-submission_test.to_csv("C:/Users/mdjac/Documents/Kaggle/xgboost_submit.csv", index=False)
+submission_test.to_csv("xgboost_submit.csv", index=False)
